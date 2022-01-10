@@ -8,7 +8,8 @@ import json.*;
 public class Student extends BasicStudent {
     private Tuple<String, Integer>[] exams;
     private final int PASS_LOWER_BOUND = 3;
-    public Student(String name, String surname, Integer year, Tuple<String, Integer>... exams) {
+    public Student(String name, String surname, Integer year,
+                              Tuple<String, Integer>... exams) {
         super(name, surname, year);
         this.exams = exams;
     }
@@ -22,7 +23,8 @@ public class Student extends BasicStudent {
         for (Tuple<String, Integer> exam: exams) {
             JsonPair course = new JsonPair("course", new JsonString(exam.key));
             JsonPair mark = new JsonPair("mark", new JsonNumber(exam.value));
-            JsonPair passed = new JsonPair("passed", new JsonBoolean(exam.value >= PASS_LOWER_BOUND));
+            JsonPair passed = new JsonPair("passed",
+                                new JsonBoolean(exam.value >= PASS_LOWER_BOUND));
 
             JsonObject currentObj = new JsonObject(course, mark, passed);
             examsObj[counter] = currentObj;

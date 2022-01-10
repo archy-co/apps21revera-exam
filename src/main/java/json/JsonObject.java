@@ -4,7 +4,7 @@ package json;
  * Created by Andrii_Rodionov on 1/3/2017.
  */
 public class JsonObject extends Json {
-    JsonPair[] jsonPairs;
+    private JsonPair[] jsonPairs;
 
     public JsonObject(JsonPair... jsonPairs) {
         this.jsonPairs = jsonPairs;
